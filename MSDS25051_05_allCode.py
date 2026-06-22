@@ -667,6 +667,10 @@ def main():
         device=device,
     )
     model = UNet(base_channels=args.base_channels).to(device)
+    # === Parameter validation & execution tracking ===
+    param_count = count_parameters(model)
+    print(f"Model successfully initialized on target device: {device.upper()}")
+    print(f"Total trainable parameters: {param_count:,} ({param_count / 1e6:.2f}M)")
     print(f"Model parameter count: {count_parameters(model):,}")
 
     save_noise_progression_figure(dataset, diffusion, args.output_dir)
