@@ -1,5 +1,5 @@
 # Image Generation Using Diffusion Models
-**Assignment 5 — Deep Learning Spring 2025**
+**Assignment 5 — Deep Learning Spring 2026**
 **Name: Bilal Bushra**
 **Roll Number: MSDS25051**
 
