@@ -720,6 +720,23 @@ def main():
             print(f"  Saved sample grid for epoch {epoch}")
 
     # ---------------- Save artifacts ----------------
+    ckpt_path = os.path.join(args.output_dir, "diffusion_model.pt")
+    torch.save({
+    # CHANGE 2 (cont.): save EMA weights as the primary checkpoint
+        # since they produce sharper samples. Raw weights kept too,
+        # in case you want to inspect/compare them.
+        "model_state_dict": ema.ema_model.state_dict(),
+        "raw_model_state_dict": model.state_dict(),
+        "config": {
+            "image_size": args.image_size,
+            "timesteps": args.timesteps,
+            "beta_start": args.beta_start,
+            "beta_end": args.beta_end,
+            "base_channels": args.base_channels,
+            "classes": dataset.classes,
+        },
+    }, ckpt_path)
+    print(f"Saved model checkpoint (EMA weights) -> {ckpt_path}")
     save_loss_curve(all_losses, args.output_dir)
 
     ckpt_path = os.path.join(args.output_dir, "diffusion_model.pt")
