@@ -27,7 +27,6 @@ MSDS25051_05/
 | File | Purpose |
 |------|---------|
 | `MSDS25051_05.py` | CLI training entry point — parses arguments, runs Algorithm 1 training loop |
-`set_seed` |
 | `test_single_sample.ipynb` | Loads checkpoint from `saved_models/`, generates images from noise |
 | `MSDS25051_05_allCode.py` | Concatenation of all `.py` files (required submission item) |
 
