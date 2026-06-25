@@ -13,10 +13,6 @@ MSDS25051_05/
 ├── MSDS25051_05.py              ← Main training script (run this to train)
 ├── MSDS25051_05_allCode.py      ← All code concatenated 
 ├── test_single_sample.ipynb     ← Load model & generate images from noise
-├── dataset.py                   ← Data Loader class (AnimalDiffusionDataset)
-├── diffusion.py                 ← Forward process + DDPM training/sampling math
-├── model.py                     ← Denoising U-Net model (eps_theta)
-├── utils.py                     ← Helper functions (denormalize, loss curve, etc.)
 ├── Report.pdf                   ← Findings, results, loss graphs, noise samples
 ├── README.md                    ← This file
 │
@@ -31,10 +27,7 @@ MSDS25051_05/
 | File | Purpose |
 |------|---------|
 | `MSDS25051_05.py` | CLI training entry point — parses arguments, runs Algorithm 1 training loop |
-| `dataset.py` | `AnimalDiffusionDataset` class — loads 5 classes × 20 images, normalizes to [-1, 1] |
-| `diffusion.py` | `GaussianDiffusion` class — forward noising `q_sample`, training loss, reverse sampling |
-| `model.py` | `UNet` class — sinusoidal time embeddings, residual blocks, self-attention, skip connections |
-| `utils.py` | `denormalize`, `save_noise_progression_figure`, `save_loss_curve`, `set_seed` |
+`set_seed` |
 | `test_single_sample.ipynb` | Loads checkpoint from `saved_models/`, generates images from noise |
 | `MSDS25051_05_allCode.py` | Concatenation of all `.py` files (required submission item) |
 
@@ -90,7 +83,7 @@ python MSDS25051_05.py \
     --selected_classes "Bear,Lion,Tiger,Deer,Bird" \
     --image_size 64 \
     --timesteps 1000 \
-    --epochs 300 \
+    --epochs 500 \
     --batch_size 16 \
     --lr 2e-4 \
     --loss_type l2
@@ -107,7 +100,7 @@ python MSDS25051_05.py \
 | `--selected_classes` | `None` | Comma-separated class names e.g. `"Bear,Lion,Tiger,Deer,Bird"` |
 | `--image_size` | `64` | Square resolution to resize images to |
 | `--timesteps` | `1000` | Number of diffusion steps T |
-| `--epochs` | `300` | Training epochs |
+| `--epochs` | `500` | Training epochs |
 | `--batch_size` | `16` | Batch size |
 | `--lr` | `2e-4` | Learning rate |
 | `--loss_type` | `l2` | Loss: `l1`, `l2`, or `huber` |
