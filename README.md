@@ -124,7 +124,7 @@ outputs/
         epoch_0025.png               ← Generated sample grid at epoch 25
         epoch_0050.png
         ...
-        epoch_0300.png               ← Final generated samples
+        epoch_0500.png               ← Final generated samples
 ```
 
 ---
