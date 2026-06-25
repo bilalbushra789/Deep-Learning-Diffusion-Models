@@ -121,10 +121,7 @@ outputs/
     forward_noise_progression.png    ← Bear image noised across T steps (Figure 1)
     training_log.json                ← All losses + config used
     samples/
-        epoch_0025.png               ← Generated sample grid at epoch 25
-        epoch_0050.png
-        ...
-        epoch_0500.png               ← Final generated samples
+        
 ```
 
 ---
